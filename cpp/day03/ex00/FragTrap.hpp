@@ -4,7 +4,6 @@
 # include <iostream>
 # include <string>
 # include <cmath>
-# include <cmath>
 class FragTrap
 {
     private:
