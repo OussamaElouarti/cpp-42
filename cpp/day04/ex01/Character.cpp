@@ -28,6 +28,7 @@ void    Character::attack(Enemy* enemy)
         std::cout << "NO AP left! RECOVER!" << std::endl;
     else
         this->aweapon->attack();
+    enemy->takeDamage(this->aweapon->getDamage());
 }
 
 void    Character::equip(AWeapon* aweapon)

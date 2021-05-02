@@ -63,7 +63,6 @@ void    ft_add(Phonebook *instance, int *i)
 {
     std::string tmp;
     std::cout << "input first name : ";
-    // std::cin.get();
     getline(std::cin, tmp);
     instance->get_contacts(*i)->set_first_name(tmp);
     std::cout << "input last name : ";

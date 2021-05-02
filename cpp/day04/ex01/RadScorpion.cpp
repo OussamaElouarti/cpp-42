@@ -15,6 +15,6 @@ void RadScorpion::takeDamage(int amount)
     this->_HP -= amount;
     if (this->_HP < 0)
         this->_HP = 0;
-    if (this->_HP == 0)
+    if (this->_HP == 0) 
         std::cout << "* SPROTCH *" << std::endl;
 }
