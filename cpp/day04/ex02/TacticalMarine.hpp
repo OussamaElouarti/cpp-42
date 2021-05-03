@@ -9,10 +9,10 @@ class TacticalMarine : public ISpaceMarine
     public:
         TacticalMarine();
         ~TacticalMarine();
-        void meleeAttack();
-        void rangedAttack();
-        void battleCry();
-        ISpaceMarine *clone();
+        void meleeAttack() const;
+        void rangedAttack() const;
+        void battleCry() const;
+        ISpaceMarine *clone() const;
 };
 
 #endif
