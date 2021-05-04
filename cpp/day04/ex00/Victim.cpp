@@ -6,6 +6,12 @@ Victim::Victim(std::string name)
     std::cout << "Some random victim called " << this->_name << " just appeared!" << std::endl;
 }
 
+Victim::Victim(Victim & copy)
+{
+    this->_name = copy.get_name();
+    std::cout << "Some random victim called " << this->_name << " just appeared!" << std::endl;
+}
+
 Victim::~Victim()
 {
     std::cout << "Victim " << this->_name << " just died for no apparent reason!" << std::endl;
