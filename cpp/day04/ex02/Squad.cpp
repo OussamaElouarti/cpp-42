@@ -33,12 +33,8 @@ ISpaceMarine  *Squad::getUnit(int n) const
     tmp = this->_units;
     if (n < 0 || n >= this->_count)
         return (NULL);
-    // if (n == 0)
-    //     return (this->_units->_unit);
     while (n--)
-    {
         tmp = tmp->_next;
-    }
     return (tmp->_unit);
 }
 
