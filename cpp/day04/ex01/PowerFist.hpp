@@ -8,6 +8,9 @@ class PowerFist : public AWeapon
 {
     public :
         PowerFist();
+        PowerFist(const PowerFist & copy);
+        virtual ~PowerFist();
+        PowerFist &operator=(const PowerFist& op);
         void attack() const;
 };
 

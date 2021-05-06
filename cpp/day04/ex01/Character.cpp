@@ -2,6 +2,7 @@
 
 Character::Character(std::string const & name)
 {
+    this->wep = 0;
     this->_name = name;
     this->_AP = 40;
 }
@@ -33,6 +34,7 @@ void    Character::attack(Enemy* enemy)
 
 void    Character::equip(AWeapon* aweapon)
 {
+    this->wep = 1;
     this->aweapon = aweapon;
 }
 
@@ -53,7 +55,8 @@ AWeapon *Character::getAweapon() const
 
 std::ostream &			operator<<( std::ostream & o, Character const & i )
 {
-    if (i.getAweapon()->getDamage() != 50 && i.getAweapon()->getDamage() != 21)
+
+    if (i.wep == 0)
         o << i.getName() << " has " << i.getAP() << " AP and is unarmed" << std::endl;
     else
         o << i.getName() << " has " << i.getAP() << " AP and wields a " <<i.getAweapon()->getName() << std::endl;

@@ -8,7 +8,9 @@ class TacticalMarine : public ISpaceMarine
 {
     public:
         TacticalMarine();
-        ~TacticalMarine();
+        TacticalMarine(const TacticalMarine&) {};
+        virtual ~TacticalMarine();
+        TacticalMarine &operator=(const TacticalMarine& op);
         void meleeAttack() const;
         void rangedAttack() const;
         void battleCry() const;

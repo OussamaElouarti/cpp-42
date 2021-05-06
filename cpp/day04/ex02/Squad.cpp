@@ -6,6 +6,33 @@ Squad::Squad()
     this->_units = NULL;
 }
 
+Squad::Squad(const Squad& op)
+{
+    t_units *units;
+    t_units *units_next;
+    t_units *start_units;
+    t_units *op_units;
+
+    units = this->_units;
+    units_next = units->_next;
+    start_units = units;
+    op_units = op._units;
+    for(int i = 0; i < this->getCount(); i++)
+    {
+        delete units->_unit;
+        units = units_next;
+        units_next = units->_next;
+    }
+    units = start_units;
+
+    for (int i = 0; i < op.getCount(); i++)
+    {
+        ISpaceMarine *copy = op_units->_unit->clone();
+        this->push(copy);
+        op_units = op_units->_next;
+    }
+}
+
 Squad::~Squad()
 {
     t_units *next;
@@ -28,7 +55,6 @@ int     Squad::getCount() const
 ISpaceMarine  *Squad::getUnit(int n) const
 {
     t_units *tmp;
-    int i = 0;
 
     tmp = this->_units;
     if (n < 0 || n >= this->_count)
@@ -36,6 +62,20 @@ ISpaceMarine  *Squad::getUnit(int n) const
     while (n--)
         tmp = tmp->_next;
     return (tmp->_unit);
+}
+
+Squad & Squad::operator=(const Squad& op)
+{
+    if (this == &op)
+        return (*this);
+    this->_count = op._count;
+    for(int i = 0; i < this->getCount(); i++)
+    {
+        delete this->_units->_unit;
+        this->_units->_unit = this->_units->_next->_unit;
+    }
+    this->_units = op._units;
+    return (*this);
 }
 
 int Squad::push(ISpaceMarine* unit)

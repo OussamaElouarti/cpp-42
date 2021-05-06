@@ -20,9 +20,9 @@ class Squad: public ISquad
 
     public:
         Squad();
-        // Squad(const Squad&);
+        Squad(const Squad&);
         ~Squad();
-        // Squad &operator=(const Squad& op);
+        Squad &operator=(const Squad& op);
         int                     getCount() const;
         ISpaceMarine*           getUnit(int) const;
         int                     push(ISpaceMarine*);

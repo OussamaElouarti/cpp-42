@@ -5,11 +5,6 @@ Knight::Knight(std::string name) : Victim(name)
     this->_name = name;
     std::cout << "Zog zog." << std::endl;
 }
-Knight::knight(Knight & copy)
-{
-    this->_name = copy.get_name();
-    std::cout << "Zog zog." << std::endl;
-}
 
 Knight::~Knight()
 {

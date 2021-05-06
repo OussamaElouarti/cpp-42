@@ -10,8 +10,11 @@ class AWeapon
         int _damage;
         int _APcost;
     public :
+        AWeapon();
         AWeapon(std::string const & name, int apcost, int damage);
-        ~AWeapon();
+        AWeapon(const AWeapon&);
+        virtual ~AWeapon();
+        AWeapon &operator=(const AWeapon& op);
         std::string getName() const;
         int getAPCost() const;
         int getDamage() const;

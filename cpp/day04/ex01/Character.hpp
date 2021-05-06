@@ -18,6 +18,7 @@ class Character
         void attack(Enemy* enemy);
         std::string  getName() const;
         int getAP() const;
+        int wep;
         AWeapon *getAweapon() const;
 };
 

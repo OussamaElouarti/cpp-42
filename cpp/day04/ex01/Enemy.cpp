@@ -23,6 +23,7 @@ int Enemy::getHP() const
 
 void Enemy::takeDamage(int f)
 {
+	(void)f;
     return ;
 }
 
