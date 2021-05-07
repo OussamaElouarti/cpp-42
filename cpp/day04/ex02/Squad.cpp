@@ -37,7 +37,6 @@ Squad::~Squad()
 {
     t_units *next;
 
-
     while (this->_units != NULL)
     {
         delete this->_units->_unit;

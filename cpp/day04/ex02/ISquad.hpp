@@ -1,8 +1,8 @@
 #ifndef ISQUAD_HPP
 # define ISQUAD_HPP
 
-#include <iostream>
 #include "ISpaceMarine.hpp"
+
 class ISquad
 {
     public:

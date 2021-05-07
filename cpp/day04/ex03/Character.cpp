@@ -30,7 +30,9 @@ Character & Character::operator=(const Character& op)
 	if (this == &op)
 		return (*this);
 	this->_name = op.getName();
-	
+	for (int i = 0; i < 4; i++)
+		if (this->_inv[i])
+			delete this->_inv[i];
 	for (int i = 0; i < 4; i++)
 		if (op._inv[i])
 			this->_inv[i] = op._inv[i];
