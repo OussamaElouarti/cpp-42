@@ -42,6 +42,11 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 	std::cout << this->getTarget() << " has been pardoned by Zafod Beeblebrox." << std::endl;
 }
 
+Form * PresidentialPardonForm::make(std::string target)
+{
+	return( new PresidentialPardonForm(target));
+}
+
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */

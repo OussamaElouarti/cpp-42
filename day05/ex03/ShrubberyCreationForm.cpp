@@ -66,6 +66,11 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	Nfile.close();
 }
 
+Form *ShrubberyCreationForm::make(std::string target)
+{
+	return (new ShrubberyCreationForm(target));
+}
+
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */

@@ -1,20 +1,19 @@
-#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("PresidentialPardonForm", 72, 45, target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form("RobotomyRequestForm", 25, 5, target)
 {
 }
-
 
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-PresidentialPardonForm::~PresidentialPardonForm()
+RobotomyRequestForm::~RobotomyRequestForm()
 {
 }
 
@@ -23,23 +22,31 @@ PresidentialPardonForm::~PresidentialPardonForm()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
+
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void PresidentialPardonForm::execute(Bureaucrat const & executor) const
+void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
 	if (this->getSigned() == false)
 	{
-		std::cout << "Form " << this->getName() <<" not signed" << std::endl;
-		return;
+		throw std::string("From must be signed before executing");
 	}
 	else if (executor.getGrade() > this->getExecGrade())
 	{	
 		throw Form::GradeTooLowException();
-		return;
 	}
-	std::cout << this->getTarget() << " has been pardoned by Zafod Beeblebrox." << std::endl;
+	std::cout << "Crrrrr Vrrrrrrr" << std::endl;
+	if (rand() % 2 == 0)
+		std::cout << this->getTarget() << " has been robotomized" << std::endl;
+	else
+		std::cout << "failled to robotomized" << std::endl;
+}
+
+Form *RobotomyRequestForm::make(std::string target)
+{
+	return (new RobotomyRequestForm(target));
 }
 
 /*
