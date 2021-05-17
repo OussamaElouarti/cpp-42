@@ -4,20 +4,15 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Bureaucrat::Bureaucrat(std::string name, int grade)
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 {
-	this->_name = name;
 	if (grade > 150)
-		throw Bureaucrat::GradeTooHighException();
-	else if (grade <= 0)
 		throw Bureaucrat::GradeTooLowException();
+	else if (grade <= 0)
+		throw Bureaucrat::GradeTooHighException();
 	else
 		this->_grade = grade;
 }	
-
-// Bureaucrat::Bureaucrat( const Bureaucrat & src )
-// {
-// }
 
 
 /*
@@ -46,7 +41,7 @@ std::ostream &			operator<<( std::ostream & o, const Bureaucrat & i )
 void Bureaucrat::decrement()
 {
 	if (this->_grade + 1 > 150)
-		throw Bureaucrat::GradeTooHighException();
+		throw Bureaucrat::GradeTooLowException();
 	else
 		this->_grade += 1;
 }
@@ -54,7 +49,7 @@ void Bureaucrat::decrement()
 void Bureaucrat::increment()
 {
 	if (this->_grade - 1 <= 0)
-		throw Bureaucrat::GradeTooLowException();
+		throw Bureaucrat::GradeTooHighException();
 	else
 		this->_grade -= 1;
 }

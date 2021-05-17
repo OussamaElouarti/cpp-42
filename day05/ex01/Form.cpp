@@ -4,19 +4,13 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Form::Form(std::string name, int signGrade, int execGrade)
+Form::Form(std::string name, const int signGrade, const int execGrade) : _name(name) , _signGrade(signGrade), _execGrade(execGrade)
 {
-	this->_name = name;
-	this->_signed = false;
+	_signed = false;
 	if (signGrade <= 0 || execGrade <= 0)  
 		throw Form::GradeTooHighException();
 	else if (signGrade > 150 || execGrade > 150)
 		throw Form::GradeTooLowException();
-	else
-	{
-		this->_signGrade = signGrade;
-		this-> _execGrade = execGrade;
-	}
 }
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
@@ -50,8 +44,6 @@ void	Form::beSigned(Bureaucrat & bureaucrat)
 	else
 		this->_signed = true;
 }
-
-
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

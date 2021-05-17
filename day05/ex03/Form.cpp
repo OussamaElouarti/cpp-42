@@ -4,21 +4,16 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Form::Form(std::string name, int signGrade, int execGrade, std::string target)
+Form::Form(std::string name, const int signGrade, const int execGrade, std::string target) : _name(name) , _signGrade(signGrade), _execGrade(execGrade)
 {
-	this->_name = name;
-	this->_signed = false;
-	this->_target = target;
+	_signed = false;
+	_target = target;
 	if (signGrade <= 0 || execGrade <= 0)  
 		throw Form::GradeTooHighException();
 	else if (signGrade > 150 || execGrade > 150)
 		throw Form::GradeTooLowException();
-	else
-	{
-		this->_signGrade = signGrade;
-		this-> _execGrade = execGrade;
-	}
 }
+
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */

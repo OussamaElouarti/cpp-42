@@ -35,10 +35,10 @@ class Form
 				virtual const char* what() const throw();
 		};
 	private:
-		std::string _name;
+		const std::string _name;
 		bool _signed;
-		int _signGrade;
-		int _execGrade;
+		const int _signGrade;
+		const int _execGrade;
 
 };
 
