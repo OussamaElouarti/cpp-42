@@ -18,8 +18,7 @@ T & min(T & x, T & y)
 template< typename T >
 void  swap(T &s1, T &s2)
 {
-    T tmp;
-    tmp = s1;
+    T tmp(s1);
     s1 = s2;
     s2 = tmp;
 }
